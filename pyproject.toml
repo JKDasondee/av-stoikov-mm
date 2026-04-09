@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "avsm"
+version = "0.1.0"
+description = "Avellaneda-Stoikov market maker reproduction on Bybit L2 data"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "polars>=1.12",
+    "scipy>=1.13",
+    "requests>=2.32",
+    "matplotlib>=3.9",
+    "pyarrow>=17.0",
+]
+
+[project.optional-dependencies]
+hft = ["hftbacktest>=2.0"]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.7",
+    "ipykernel>=6.29",
+    "jupyter>=1.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
