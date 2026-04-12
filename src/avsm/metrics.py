@@ -1,4 +1,5 @@
 """Market-making-specific metrics — PnL, inventory risk, adverse selection."""
+
 from __future__ import annotations
 
 import numpy as np

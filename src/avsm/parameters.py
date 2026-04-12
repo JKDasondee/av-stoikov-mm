@@ -5,6 +5,7 @@ k:     exponential decay of fill probability with distance from mid — estimate
        fitting lambda(delta) = A * exp(-k * delta) to historical trades that lifted
        the book at various distances.
 """
+
 from __future__ import annotations
 
 import numpy as np
@@ -36,7 +37,6 @@ def estimate_k(distances: np.ndarray, fill_counts: np.ndarray) -> tuple[float, f
     x = distances[mask]
     y = np.log(fill_counts[mask])
     # linear regression y = log(A) - k*x
-    n = len(x)
     x_mean = x.mean()
     y_mean = y.mean()
     slope = ((x - x_mean) * (y - y_mean)).sum() / ((x - x_mean) ** 2).sum()

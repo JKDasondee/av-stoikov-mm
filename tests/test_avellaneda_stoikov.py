@@ -11,6 +11,7 @@ Paper invariants we verify:
   8. Spread widens with gamma (more risk averse → wider quotes)
   9. Spread narrows with k (faster fills → tighter quotes)
 """
+
 from __future__ import annotations
 
 import math
@@ -102,8 +103,7 @@ def test_reservation_price_formula(base_params):
 
 def test_half_spread_formula(base_params):
     t = 0.3
-    expected = (
-        base_params.gamma * base_params.sigma**2 * (base_params.T - t)
-        + (2 / base_params.gamma) * math.log(1 + base_params.gamma / base_params.k)
-    )
+    expected = base_params.gamma * base_params.sigma**2 * (base_params.T - t) + (
+        2 / base_params.gamma
+    ) * math.log(1 + base_params.gamma / base_params.k)
     assert optimal_half_spread(base_params, t) == pytest.approx(expected)

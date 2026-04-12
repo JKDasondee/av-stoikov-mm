@@ -17,6 +17,7 @@ Key formulas:
         bid = reservation_price - delta
         ask = reservation_price + delta
 """
+
 from __future__ import annotations
 
 import math
@@ -50,7 +51,9 @@ class AvellanedaStoikovParams:
             raise ValueError(f"T must be > 0, got {self.T}")
 
 
-def reservation_price(mid: float, inventory: float, params: AvellanedaStoikovParams, t: float) -> float:
+def reservation_price(
+    mid: float, inventory: float, params: AvellanedaStoikovParams, t: float
+) -> float:
     """r(s, q, t) = s - q * gamma * sigma^2 * (T - t)
 
     When inventory q is long (positive), reservation price shifts down (sell more).

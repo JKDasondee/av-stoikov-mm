@@ -1,5 +1,8 @@
 # av-stoikov-mm
 
+[![CI](https://github.com/JKDasondee/av-stoikov-mm/actions/workflows/ci.yml/badge.svg)](https://github.com/JKDasondee/av-stoikov-mm/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/python-3.11+-blue)
+
 **Avellaneda–Stoikov (2008) market maker reproduced on real Bybit BTCUSDT L2 tick data via hftbacktest.**
 
 ## Overview
